@@ -48,12 +48,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="essentialMix" Version="15.0.3" />
-		<PackageReference Include="essentialMix.Collections" Version="15.0.3" />
+		<PackageReference Include="essentialMix" Version="15.0.4" />
+		<PackageReference Include="essentialMix.Collections" Version="15.0.4" />
 		<PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
