@@ -12,7 +12,7 @@ public static class CookiePolicyOptionsExtension
 	[NotNull]
 	public static CookiePolicyOptions UseDefaultCookiePolicy([NotNull] this CookiePolicyOptions thisValue)
 	{
-		thisValue.HttpOnly = HttpOnlyPolicy.Always;
+		//thisValue.HttpOnly = HttpOnlyPolicy.Always;
 		thisValue.MinimumSameSitePolicy = SameSiteMode.Unspecified;
 		thisValue.Secure = CookieSecurePolicy.SameAsRequest;
 		return thisValue;

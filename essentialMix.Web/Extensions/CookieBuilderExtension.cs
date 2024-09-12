@@ -10,7 +10,7 @@ public static class CookieBuilderExtension
 	public static CookieBuilder UseDefaultCookieOptions([NotNull] this CookieBuilder thisValue)
 	{
 		thisValue.HttpOnly = true;
-		thisValue.SameSite = SameSiteMode.Lax;
+		thisValue.SameSite = SameSiteMode.Unspecified;
 		thisValue.SecurePolicy = CookieSecurePolicy.SameAsRequest;
 		return thisValue;
 	}
