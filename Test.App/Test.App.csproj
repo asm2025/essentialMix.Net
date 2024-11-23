@@ -6,7 +6,7 @@
 		<OutputType>Exe</OutputType>
 		<TargetFramework>net8.0</TargetFramework>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<LangVersion>11.0</LangVersion>
+		<LangVersion>12.0</LangVersion>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<Prefer32Bit>false</Prefer32Bit>
 		<Platforms>AnyCPU;x64;x86</Platforms>
@@ -47,8 +47,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="essentialMix.Windows" Version="15.0.5" />
-		<PackageReference Include="JetBrains.Annotations" Version="2024.2.0" />
+		<PackageReference Include="essentialMix.Windows" Version="15.0.6" />
+		<PackageReference Include="JetBrains.Annotations" Version="2024.3.0" />
 	</ItemGroup>
 
 	<ItemGroup>
