@@ -6,7 +6,6 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<LangVersion>12.0</LangVersion>
-		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<OutputPath>..\bin\$(Configuration)\$(Platform)\$(TargetFramework)\</OutputPath>
 		<Platforms>AnyCPU;x64;x86</Platforms>
 		<AssemblyVersion>15.0.6.0</AssemblyVersion>
