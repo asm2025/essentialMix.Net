@@ -77,7 +77,7 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.11" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
-		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.4.9" />
+		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.6.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.DynamicLinq" Version="8.4.9" />
 	</ItemGroup>
 
