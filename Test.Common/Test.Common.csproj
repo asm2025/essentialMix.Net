@@ -46,9 +46,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Bogus" Version="35.6.2" />
-		<PackageReference Include="essentialMix" Version="15.0.9" />
-		<PackageReference Include="JetBrains.Annotations" Version="2024.3.0" />
+		<PackageReference Include="Bogus" Version="35.6.3" />
+		<PackageReference Include="essentialMix" Version="16.1.0" />
+		<PackageReference Include="JetBrains.Annotations" Version="2025.2.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 

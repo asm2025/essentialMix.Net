@@ -1,7 +1,8 @@
+using JetBrains.Annotations;
 using System;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
-using JetBrains.Annotations;
 
 namespace essentialMix.Data.Entity.Patterns.Provider;
 
@@ -9,13 +10,14 @@ public abstract class DataProvider<TType> : essentialMix.Data.Patterns.Provider.
 	where TType : struct, IComparable
 {
 	/// <inheritdoc />
-	protected DataProvider()
+	protected DataProvider([NotNull] DbProviderFactory factory)
+		: base(factory)
 	{
 	}
 
 	/// <inheritdoc />
-	protected DataProvider([NotNull] IDbConnection connection)
-		: base(connection)
+	protected DataProvider([NotNull] DbProviderFactory factory, [NotNull] IDbConnection connection)
+		: base(factory, connection)
 	{
 	}
 

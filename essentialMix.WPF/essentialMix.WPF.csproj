@@ -10,9 +10,9 @@
 		<LangVersion>12.0</LangVersion>
 		<Platforms>AnyCPU;x64;x86</Platforms>
 		<OutputPath>..\bin\$(Configuration)\$(Platform)\$(TargetFramework)\</OutputPath>
-		<AssemblyVersion>15.0.9.0</AssemblyVersion>
-		<FileVersion>25.04.12</FileVersion>
-		<Version>15.0.9.0</Version>
+		<AssemblyVersion>16.1.0.0</AssemblyVersion>
+		<FileVersion>25.07.24</FileVersion>
+		<Version>16.1.0.0</Version>
 	</PropertyGroup>
 	
 	<PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
@@ -48,7 +48,7 @@
 		<PackageId>$(ProjectName)</PackageId>
 		<PackageIcon>buckramega.png</PackageIcon>
 		<PackageOutputPath>$(SolutionDir)nuget</PackageOutputPath>
-		<PackageVersion>15.0.9.0</PackageVersion>
+		<PackageVersion>16.1.0.0</PackageVersion>
 		<Authors>asm</Authors>
 		<Description>Common extensions methods, helper classes, components, common patterns, Windows Presentation Foundation, WPF</Description>
 		<PackageTags>utilities, tools, extensions, helpers, components, patterns, core, wpf</PackageTags>
@@ -71,10 +71,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="essentialMix" Version="15.0.9" />
-		<PackageReference Include="essentialMix.Windows" Version="15.0.9" />
+		<PackageReference Include="essentialMix" Version="16.1.0" />
+		<PackageReference Include="essentialMix.Windows" Version="16.1.0" />
 		<PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
-		<PackageReference Include="JetBrains.Annotations" Version="2024.3.0" />
+		<PackageReference Include="JetBrains.Annotations" Version="2025.2.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
