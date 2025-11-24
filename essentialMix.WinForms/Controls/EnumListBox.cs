@@ -116,6 +116,7 @@ public class EnumListBox : ListBox
 		SelectedIndex = IndexFromPoint(e.Location);
 	}
 
+	[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 	public IWindowsFormsEditorService EditorService { get; set; }
 	
 	protected bool InDesignMode { get; }

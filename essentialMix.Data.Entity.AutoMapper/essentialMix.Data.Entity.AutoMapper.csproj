@@ -3,14 +3,14 @@
 	<PropertyGroup>
 		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
 		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<LangVersion>12.0</LangVersion>
+		<LangVersion>14.0</LangVersion>
 		<Platforms>AnyCPU;x64;x86</Platforms>
 		<OutputPath>..\bin\$(Configuration)\$(Platform)\$(TargetFramework)\</OutputPath>
-		<AssemblyVersion>16.1.0.0</AssemblyVersion>
-		<FileVersion>25.07.24</FileVersion>
-		<Version>16.1.0.0</Version>
+		<AssemblyVersion>17.0.0.0</AssemblyVersion>
+		<FileVersion>25.11.23</FileVersion>
+		<Version>17.0.0.0</Version>
 	</PropertyGroup>
 	
 	<PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
@@ -46,7 +46,7 @@
 		<PackageId>$(ProjectName)</PackageId>
 		<PackageIcon>buckramega.png</PackageIcon>
 		<PackageOutputPath>$(SolutionDir)nuget</PackageOutputPath>
-		<PackageVersion>16.1.0.0</PackageVersion>
+		<PackageVersion>17.0.0.0</PackageVersion>
 		<Authors>asm</Authors>
 		<Description>Common extensions methods, helper classes, components, nano systems, and common patterns</Description>
 		<PackageTags>utilities, tools, extensions, helpers, components, patterns, core, database, dbms, entityframeworkcore, orm</PackageTags>
@@ -70,16 +70,16 @@
 
 	<ItemGroup>
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
-		<PackageReference Include="essentialMix" Version="16.1.0" />
-		<PackageReference Include="essentialMix.Data" Version="16.1.0" />
-		<PackageReference Include="essentialMix.Threading" Version="16.1.0" />
-		<PackageReference Include="JetBrains.Annotations" Version="2025.2.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.18" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.18" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.3" />
-		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.6.6" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.DynamicLinq" Version="8.6.6" />
+		<PackageReference Include="essentialMix" Version="17.0.0" />
+		<PackageReference Include="essentialMix.Data" Version="17.0.0" />
+		<PackageReference Include="essentialMix.Threading" Version="17.0.0" />
+		<PackageReference Include="JetBrains.Annotations" Version="2025.2.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
+		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.7.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.DynamicLinq" Version="10.7.0" />
 	</ItemGroup>
 
 	<ItemGroup>

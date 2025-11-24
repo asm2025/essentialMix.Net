@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using essentialMix.WinForms.Html;
@@ -79,6 +80,7 @@ public class HtmlLabel : Control
 
 	public event RecalculatedEvent Recalculated;
 
+	[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
 	public VerticalAlignment VerticalAlignment
 	{
 		get => _vertAlign;
@@ -90,6 +92,7 @@ public class HtmlLabel : Control
 		}
 	}
 
+	[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
 	public float SpaceSize
 	{
 		get => _spaceSize;
@@ -101,6 +104,7 @@ public class HtmlLabel : Control
 		}
 	}
 
+	[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
 	public bool ShowBorders
 	{
 		get => _showBorders;
@@ -164,7 +168,7 @@ public class HtmlLabel : Control
 		return grOffScr;
 	}
 
-	// raèunanje velikosti elementov in doloèanje posameznih vrstic
+	// raï¿½unanje velikosti elementov in doloï¿½anje posameznih vrstic
 	private void CalculateLines(Graphics grOff)
 	{
 		_textLines.Clear();
@@ -241,7 +245,7 @@ public class HtmlLabel : Control
 					break;
 			}
 		}
-		_textLines.Add(new TextLine(currWdth, currHgth, values.Count - 1)); // stražar
+		_textLines.Add(new TextLine(currWdth, currHgth, values.Count - 1)); // straï¿½ar
 		_totalHeight += currHgth;
 
 		/*

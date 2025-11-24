@@ -73,6 +73,7 @@ public class MacAddressBox : MaskedTextBox
 
 	public IReadOnlyCollection<string> Formats => MacAddressHelper.Formats;
 
+	[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
 	public string Format
 	{
 		get => _format;

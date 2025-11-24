@@ -9,7 +9,7 @@ using essentialMix.Web;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Abstractions;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace essentialMix.Swagger.Filters;
@@ -33,25 +33,26 @@ public class FormFileFilter : IOperationFilter
 		{
 			Schema = new OpenApiSchema
 			{
-				Type = "object",
-				Properties = new Dictionary<string, OpenApiSchema>(StringComparer.OrdinalIgnoreCase),
+				Type = JsonSchemaType.Object,
+				Properties = new Dictionary<string, IOpenApiSchema>(StringComparer.OrdinalIgnoreCase),
 				Required = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
 			}
 		});
 
-		IDictionary<string, OpenApiSchema> schemaProperties = uploadFileMediaType.Schema.Properties;
+		IDictionary<string, IOpenApiSchema> schemaProperties = uploadFileMediaType.Schema.Properties;
 		ISet<string> schemaRequired = uploadFileMediaType.Schema.Required;
 		ISchemaGenerator generator = context.SchemaGenerator;
 		SchemaRepository repository = context.SchemaRepository;
 
 		foreach (ParameterDescriptor parameter in Enumerate(context.ApiDescription.ActionDescriptor))
 		{
-			OpenApiSchema schema = generator.GenerateSchema(parameter.ParameterType, repository);
+			OpenApiSchema schema = generator.GenerateSchema(parameter.ParameterType, repository) as OpenApiSchema;
 			if (schema == null) continue;
 
 			if (IsSupported(parameter.ParameterType))
 			{
-				schema.Type = "file";
+				schema.Type = JsonSchemaType.String;
+                schema.Format = "binary";
 			}
 			schemaProperties.Add(parameter.Name, schema);
 
