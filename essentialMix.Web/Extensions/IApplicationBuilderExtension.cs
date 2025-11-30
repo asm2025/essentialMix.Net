@@ -75,7 +75,7 @@ public static class IApplicationBuilderExtension
 			ForwardedHeaders = ForwardedHeaders.All
 		};
 
-		forwardingOptions.KnownNetworks.Clear();
+		forwardingOptions.KnownIPNetworks.Clear();
 		forwardingOptions.KnownProxies.Clear();
 
 		thisValue.UseForwardedHeaders(forwardingOptions);

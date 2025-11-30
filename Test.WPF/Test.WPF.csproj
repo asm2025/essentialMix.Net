@@ -47,9 +47,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="essentialMix" Version="17.0.0" />
-		<PackageReference Include="essentialMix.Collections" Version="17.0.0" />
-		<PackageReference Include="JetBrains.Annotations" Version="2025.2.2" />
+		<PackageReference Include="essentialMix" Version="17.0.1" />
+		<PackageReference Include="essentialMix.Collections" Version="17.0.1" />
+		<PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />

@@ -29,7 +29,7 @@ public class FormFileFilter : IOperationFilter
 		// Check if any of the parameters' types or their nested properties / fields are supported
 		if (!Enumerate(context.ApiDescription.ActionDescriptor).Any(e => IsSupported(e.ParameterType))) return;
 
-		OpenApiMediaType uploadFileMediaType = operation.RequestBody.Content.GetOrAdd(MediaTypeNames.Multipart.FormData, _ => new OpenApiMediaType
+		OpenApiMediaType uploadFileMediaType = (OpenApiMediaType)operation.RequestBody.Content.GetOrAdd(MediaTypeNames.Multipart.FormData, _ => new OpenApiMediaType
 		{
 			Schema = new OpenApiSchema
 			{

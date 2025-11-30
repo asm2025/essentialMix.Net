@@ -8,9 +8,9 @@
 		<LangVersion>14.0</LangVersion>
 		<OutputPath>..\bin\$(Configuration)\$(Platform)\$(TargetFramework)\</OutputPath>
 		<Platforms>AnyCPU;x64;x86</Platforms>
-		<AssemblyVersion>17.0.0.0</AssemblyVersion>
-		<FileVersion>25.11.23</FileVersion>
-		<Version>17.0.0.0</Version>
+		<AssemblyVersion>17.0.1.0</AssemblyVersion>
+		<FileVersion>25.11.30</FileVersion>
+		<Version>17.0.1.0</Version>
 	</PropertyGroup>
 	
 	<PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
@@ -46,7 +46,7 @@
 		<PackageId>$(ProjectName)</PackageId>
 		<PackageIcon>buckramega.png</PackageIcon>
 		<PackageOutputPath>$(SolutionDir)nuget</PackageOutputPath>
-		<PackageVersion>17.0.0.0</PackageVersion>
+		<PackageVersion>17.0.1.0</PackageVersion>
 		<Authors>asm</Authors>
 		<Description>Common extensions methods, helper classes, components, nano systems, and common patterns</Description>
 		<PackageTags>utilities, tools, extensions, helpers, components, patterns, core, mvc, web api, swagger</PackageTags>
@@ -69,12 +69,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="essentialMix" Version="17.0.0" />
-		<PackageReference Include="essentialMix.Extensions.Configuration" Version="17.0.0" />
-		<PackageReference Include="JetBrains.Annotations" Version="2025.2.2" />
+		<PackageReference Include="essentialMix" Version="17.0.1" />
+		<PackageReference Include="essentialMix.Extensions.Configuration" Version="17.0.1" />
+		<PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="10.0.0" />
-		<PackageReference Include="Microsoft.OpenApi" Version="2.3.0" />
+		<PackageReference Include="Microsoft.OpenApi" Version="3.0.1" />
 		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="10.0.1" />
 		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.0.1" />
 	</ItemGroup>
