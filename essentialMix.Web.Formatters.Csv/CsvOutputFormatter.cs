@@ -5,7 +5,6 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using CsvHelper;
-using CsvHelper.Configuration;
 using essentialMix.Web.Formatters.Csv.Internal;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Mvc.Formatters;
@@ -15,14 +14,13 @@ namespace essentialMix.Web.Formatters.Csv;
 public class CsvOutputFormatter : TextOutputFormatter
 {
 	/// <inheritdoc />
-	public CsvOutputFormatter([NotNull] CsvConfiguration configuration)
+	public CsvOutputFormatter([NotNull] CsvWriterOptions options)
 	{
-		Configuration = configuration;
+		Options = options;
 
 		SupportedEncodings.Add(Encoding.UTF8);
 		SupportedEncodings.Add(Encoding.Unicode);
-		if (configuration.Encoding != null && !SupportedEncodings.Contains(configuration.Encoding)) SupportedEncodings.Add(configuration.Encoding);
-
+		
 		SupportedMediaTypes.Add(MediaTypeHeaderValues.ApplicationCsv);
 		SupportedMediaTypes.Add(MediaTypeHeaderValues.TextCsv);
 		SupportedMediaTypes.Add(MediaTypeHeaderValues.ApplicationAnyCsvSyntax);
@@ -30,7 +28,7 @@ public class CsvOutputFormatter : TextOutputFormatter
 
 	[NotNull]
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public CsvConfiguration Configuration { get; }
+	public CsvWriterOptions Options { get; }
 
 	/// <inheritdoc />
 	[NotNull]
@@ -51,25 +49,14 @@ public class CsvOutputFormatter : TextOutputFormatter
 	{
 		if (value == null) return;
 
-		using (CsvWriter csvWriter = new CsvWriter(writer, Configuration))
+		using (CsvWriter csvWriter = CsvWriter.Create(writer, Options, true))
 		{
-			if (value is IEnumerable enumerable)
-				csvWriter.WriteRecords(enumerable);
-			else
-				csvWriter.WriteRecord(value);
+			CsvReflection.WriteRecords(csvWriter, value);
 		}
 	}
 
 	public void Write<T>([NotNull] TextWriter writer, T value)
 	{
-		if (value == null) return;
-
-		using (CsvWriter csvWriter = new CsvWriter(writer, Configuration))
-		{
-			if (value is IEnumerable enumerable)
-				csvWriter.WriteRecords(enumerable);
-			else
-				csvWriter.WriteRecord(value);
-		}
+		Write(writer, (object)value);
 	}
 }

@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
-using CsvHelper.Configuration;
+using CsvHelper;
 using essentialMix.Web.Formatters.Csv;
 using essentialMix.Web.Formatters.Csv.Internal;
 using JetBrains.Annotations;
@@ -13,19 +12,19 @@ namespace essentialMix.Extensions;
 public static class CoreWebFormattersCsvMvcOptionsExtension
 {
 	[NotNull]
-	public static MvcOptions ConfigureCsvFormatter([NotNull] this MvcOptions thisValue, [NotNull] Action<CsvConfiguration> configureCsv)
+	public static MvcOptions ConfigureCsvFormatter([NotNull] this MvcOptions thisValue, [NotNull] Func<CsvReaderOptions, CsvReaderOptions> configureReader, [NotNull] Func<CsvWriterOptions, CsvWriterOptions> configureWriter)
 	{
 		thisValue.RespectBrowserAcceptHeader = true;
 
-		CsvConfiguration settings = new CsvConfiguration(CultureInfo.InvariantCulture);
-		configureCsv(settings);
+		CsvReaderOptions readerOptions = configureReader(CsvReaderOptions.Default);
+		CsvWriterOptions writerOptions = configureWriter(CsvWriterOptions.Default);
 
 		CsvInputFormatter input = thisValue.InputFormatters.OfType<CsvInputFormatter>()
 											.FirstOrDefault();
 
 		if (input == null)
 		{
-			input = new CsvInputFormatter(settings);
+			input = new CsvInputFormatter(readerOptions);
 			thisValue.InputFormatters.Add(input);
 		}
 
@@ -34,7 +33,7 @@ public static class CoreWebFormattersCsvMvcOptionsExtension
 
 		if (output == null)
 		{
-			output = new CsvOutputFormatter(settings);
+			output = new CsvOutputFormatter(writerOptions);
 			thisValue.OutputFormatters.Add(output);
 		}
 

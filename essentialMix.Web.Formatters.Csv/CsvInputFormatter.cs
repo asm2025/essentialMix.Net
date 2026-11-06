@@ -7,7 +7,6 @@ using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using CsvHelper;
-using CsvHelper.Configuration;
 using essentialMix.Extensions;
 using essentialMix.Web.Formatters.Csv.Internal;
 using JetBrains.Annotations;
@@ -20,13 +19,13 @@ namespace essentialMix.Web.Formatters.Csv;
 public class CsvInputFormatter : TextInputFormatter, IInputFormatterExceptionPolicy
 {
 	/// <inheritdoc />
-	public CsvInputFormatter([NotNull] CsvConfiguration configuration)
+	public CsvInputFormatter([NotNull] CsvReaderOptions options)
 	{
-		Configuration = configuration;
+		Options = options;
 
 		SupportedEncodings.Add(UTF8EncodingWithoutBOM);
 		SupportedEncodings.Add(UTF16EncodingLittleEndian);
-		if (configuration.Encoding != null && !SupportedEncodings.Contains(configuration.Encoding)) SupportedEncodings.Add(configuration.Encoding);
+		if (options.Encoding != null && !SupportedEncodings.Contains(options.Encoding)) SupportedEncodings.Add(options.Encoding);
 
 		SupportedMediaTypes.Add(MediaTypeHeaderValues.ApplicationCsv);
 		SupportedMediaTypes.Add(MediaTypeHeaderValues.TextCsv);
@@ -35,7 +34,7 @@ public class CsvInputFormatter : TextInputFormatter, IInputFormatterExceptionPol
 
 	[NotNull]
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public CsvConfiguration Configuration { get; }
+	public CsvReaderOptions Options { get; }
 
 	/// <inheritdoc />
 	public virtual InputFormatterExceptionPolicy ExceptionPolicy => GetType() == typeof(CsvInputFormatter) ? InputFormatterExceptionPolicy.MalformedInputExceptions : InputFormatterExceptionPolicy.AllExceptions;
@@ -59,25 +58,24 @@ public class CsvInputFormatter : TextInputFormatter, IInputFormatterExceptionPol
 
 		using (TextReader reader = context.ReaderFactory(request.Body, encoding))
 		{
-			using (CsvReader csvReader = new CsvReader(reader, Configuration))
+			using (CsvReader csvReader = CsvReader.Create(reader, Options, true))
 			{
 				Type modelType = context.ModelType;
 
 				try
 				{
-					await csvReader.ReadAsync();
-					csvReader.ReadHeader();
-
-					if (modelType.Implements<IEnumerable>())
+					if (modelType.Implements<IEnumerable>() && modelType != typeof(string))
 					{
 						modelType = modelType.ResolveGenericType();
-						IEnumerable<object> models = csvReader.GetRecords(modelType);
+						object models = CsvReflection.ReadRecords(csvReader, modelType);
 						return models != null || context.TreatEmptyInputAsDefaultValue
 									? await InputFormatterResult.SuccessAsync(models)
 									: await InputFormatterResult.NoValueAsync();
 					}
 
-					object model = csvReader.GetRecord(modelType);
+					object model = await csvReader.ReadAsync()
+										? CsvReflection.ReadRecord(csvReader, modelType)
+										: null;
 					return model != null || context.TreatEmptyInputAsDefaultValue
 								? await InputFormatterResult.SuccessAsync(model)
 								: await InputFormatterResult.NoValueAsync();
