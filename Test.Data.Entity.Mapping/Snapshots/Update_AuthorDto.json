@@ -1,0 +1,22 @@
+{
+  "Id": 1,
+  "Name": "Ada Lovelace",
+  "Born": "1815-12-10T00:00:00",
+  "AddressCity": "London",
+  "BookCount": 2,
+  "Books": [
+    {
+      "Id": 1,
+      "Title": "Notes",
+      "Price": 12.5,
+      "AuthorName": "Ada Lovelace"
+    },
+    {
+      "Id": 2,
+      "Title": "Sketch of the Analytical Engine",
+      "Price": 30.0,
+      "AuthorName": "Ada Lovelace"
+    }
+  ],
+  "Nickname": null
+}

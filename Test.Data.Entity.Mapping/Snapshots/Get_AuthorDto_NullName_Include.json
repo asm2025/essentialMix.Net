@@ -1,0 +1,16 @@
+{
+  "Id": 3,
+  "Name": null,
+  "Born": "2000-02-29T00:00:00",
+  "AddressCity": "Paris",
+  "BookCount": 1,
+  "Books": [
+    {
+      "Id": 3,
+      "Title": null,
+      "Price": 0.99,
+      "AuthorName": null
+    }
+  ],
+  "Nickname": null
+}

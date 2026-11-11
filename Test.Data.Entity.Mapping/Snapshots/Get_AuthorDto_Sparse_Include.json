@@ -1,0 +1,9 @@
+{
+  "Id": 2,
+  "Name": "Brian",
+  "Born": "1942-01-01T00:00:00",
+  "AddressCity": null,
+  "BookCount": 0,
+  "Books": [],
+  "Nickname": null
+}

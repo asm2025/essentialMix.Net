@@ -1,0 +1,9 @@
+{
+  "Id": 1,
+  "Name": "Ada",
+  "Born": "1815-12-10T00:00:00",
+  "AddressCity": null,
+  "BookCount": 0,
+  "Books": [],
+  "Nickname": null
+}

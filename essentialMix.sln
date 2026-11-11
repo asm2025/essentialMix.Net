@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.11.12328.437 stable
+VisualStudioVersion = 18.11.12328.437
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{391ACB85-945C-4798-A486-03F9EB1EBFC2}"
 	ProjectSection(SolutionItems) = preProject
@@ -41,6 +41,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "essentialMix.Mail", "essentialMix.Mail\essentialMix.Mail.csproj", "{C2DE4DA7-CEE2-480F-8720-0FAC6CE914F1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "essentialMix.WinForms", "essentialMix.WinForms\essentialMix.WinForms.csproj", "{AB41C15E-2DFD-448E-931A-FF8662DC7A63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Data.Entity.Mapping", "Test.Data.Entity.Mapping\Test.Data.Entity.Mapping.csproj", "{68293FDE-7C36-4372-A7CC-95EB6058F0BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -208,6 +210,18 @@ Global
 		{AB41C15E-2DFD-448E-931A-FF8662DC7A63}.Release|x64.Build.0 = Release|x64
 		{AB41C15E-2DFD-448E-931A-FF8662DC7A63}.Release|x86.ActiveCfg = Release|x86
 		{AB41C15E-2DFD-448E-931A-FF8662DC7A63}.Release|x86.Build.0 = Release|x86
+		{68293FDE-7C36-4372-A7CC-95EB6058F0BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68293FDE-7C36-4372-A7CC-95EB6058F0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68293FDE-7C36-4372-A7CC-95EB6058F0BB}.Debug|x64.ActiveCfg = Debug|x64
+		{68293FDE-7C36-4372-A7CC-95EB6058F0BB}.Debug|x64.Build.0 = Debug|x64
+		{68293FDE-7C36-4372-A7CC-95EB6058F0BB}.Debug|x86.ActiveCfg = Debug|x86
+		{68293FDE-7C36-4372-A7CC-95EB6058F0BB}.Debug|x86.Build.0 = Debug|x86
+		{68293FDE-7C36-4372-A7CC-95EB6058F0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68293FDE-7C36-4372-A7CC-95EB6058F0BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68293FDE-7C36-4372-A7CC-95EB6058F0BB}.Release|x64.ActiveCfg = Release|x64
+		{68293FDE-7C36-4372-A7CC-95EB6058F0BB}.Release|x64.Build.0 = Release|x64
+		{68293FDE-7C36-4372-A7CC-95EB6058F0BB}.Release|x86.ActiveCfg = Release|x86
+		{68293FDE-7C36-4372-A7CC-95EB6058F0BB}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,23 @@
+{
+  "Result": [
+    {
+      "Id": 1,
+      "Title": "Notes",
+      "Price": 12.5,
+      "AuthorName": "Ada"
+    },
+    {
+      "Id": 2,
+      "Title": "Sketch of the Analytical Engine",
+      "Price": 30.0,
+      "AuthorName": "Ada"
+    },
+    {
+      "Id": 3,
+      "Title": null,
+      "Price": 0.99,
+      "AuthorName": null
+    }
+  ],
+  "Pagination": null
+}

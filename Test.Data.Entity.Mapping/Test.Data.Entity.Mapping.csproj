@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<TargetFramework>net10.0</TargetFramework>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<LangVersion>14.0</LangVersion>
+		<Platforms>AnyCPU;x64;x86</Platforms>
+		<IsPackable>false</IsPackable>
+		<IsTestProject>true</IsTestProject>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Platform)'=='x64' ">
+		<PlatformTarget>x64</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+		<PlatformTarget>x86</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<DebugType>full</DebugType>
+		<ErrorReport>prompt</ErrorReport>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+		<DefineConstants>TRACE</DefineConstants>
+		<Optimize>true</Optimize>
+		<DebugType>portable</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+		<ErrorReport>prompt</ErrorReport>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="..\GlobalSuppressions.cs" Link="GlobalSuppressions.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="JetBrains.Annotations" Version="2026.2.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="10.0.15" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.15" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.15" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.12.0" />
+		<PackageReference Include="NUnit" Version="4.6.1" />
+		<PackageReference Include="NUnit3TestAdapter" Version="6.3.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\essentialMix.Data.Entity.AutoMapper\essentialMix.Data.Entity.AutoMapper.csproj" />
+	</ItemGroup>
+
+</Project>
