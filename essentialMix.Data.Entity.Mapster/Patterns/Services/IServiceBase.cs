@@ -1,16 +1,16 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using essentialMix.Data.Entity.Patterns.Repository;
 using essentialMix.Data.Model;
 using essentialMix.Data.Patterns.Service;
 using essentialMix.Patterns.Pagination;
 using JetBrains.Annotations;
+using MapsterMapper;
 using Microsoft.Extensions.Logging;
 using SystemDbContext = Microsoft.EntityFrameworkCore.DbContext;
 
-namespace essentialMix.Data.Entity.AutoMapper.Patterns.Services;
+namespace essentialMix.Data.Entity.Mapster.Patterns.Services;
 
 public interface IServiceBase<TContext> : IServiceBase
 	where TContext : SystemDbContext

@@ -36,7 +36,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.WPF", "Test.WPF\Test.W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Common", "Test.Common\Test.Common.csproj", "{E55EB2AD-D824-439F-ABCB-E6592F939CFF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "essentialMix.Data.Entity.AutoMapper", "essentialMix.Data.Entity.AutoMapper\essentialMix.Data.Entity.AutoMapper.csproj", "{9A98F5FB-1359-4791-830D-1D5267964425}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "essentialMix.Data.Entity.Mapster", "essentialMix.Data.Entity.Mapster\essentialMix.Data.Entity.Mapster.csproj", "{9A98F5FB-1359-4791-830D-1D5267964425}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "essentialMix.Mail", "essentialMix.Mail\essentialMix.Mail.csproj", "{C2DE4DA7-CEE2-480F-8720-0FAC6CE914F1}"
 EndProject

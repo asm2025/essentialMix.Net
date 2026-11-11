@@ -49,7 +49,7 @@
 		<PackageVersion>17.0.16.0</PackageVersion>
 		<Authors>asm</Authors>
 		<Description>Common extensions methods, helper classes, components, nano systems, and common patterns</Description>
-		<PackageTags>utilities, tools, extensions, helpers, components, patterns, core, database, dbms, entityframeworkcore, orm</PackageTags>
+		<PackageTags>utilities, tools, extensions, helpers, components, patterns, core, database, dbms, entityframeworkcore, orm, mapster, mapping</PackageTags>
 		<PackageProjectUrl>https://github.com/asm2025/essentialMix</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/asm2025/essentialMix</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
@@ -69,7 +69,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AutoMapper" Version="16.3.0" />
+		<PackageReference Include="Mapster" Version="10.0.14" />
 		<PackageReference Include="essentialMix" Version="17.0.16" />
 		<PackageReference Include="essentialMix.Data" Version="17.0.16" />
 		<PackageReference Include="essentialMix.Threading" Version="17.0.16" />

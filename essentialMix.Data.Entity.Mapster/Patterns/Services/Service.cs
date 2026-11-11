@@ -1,14 +1,14 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using essentialMix.Data.Entity.Patterns.Repository;
 using essentialMix.Data.Model;
 using essentialMix.Extensions;
 using JetBrains.Annotations;
+using MapsterMapper;
 using Microsoft.Extensions.Logging;
 using SystemDbContext = Microsoft.EntityFrameworkCore.DbContext;
 
-namespace essentialMix.Data.Entity.AutoMapper.Patterns.Services;
+namespace essentialMix.Data.Entity.Mapster.Patterns.Services;
 
 public abstract class Service<TContext, TRepository, TEntity, TKey> : ServiceBase<TContext, TRepository, TEntity, TKey>, IService<TContext, TRepository, TEntity, TKey>
 	where TContext : SystemDbContext
@@ -36,7 +36,7 @@ public abstract class Service<TContext, TRepository, TEntity, TKey> : ServiceBas
 		entity = Add(entity);
 		return entity == null
 					? default(T)
-					: Mapper.Map<T>(entity);
+					: Mapper.Map<TEntity, T>(entity);
 	}
 
 	/// <inheritdoc />
@@ -59,7 +59,7 @@ public abstract class Service<TContext, TRepository, TEntity, TKey> : ServiceBas
 		token.ThrowIfCancellationRequested();
 		return entity == null
 					? default(T)
-					: Mapper.Map<T>(entity);
+					: Mapper.Map<TEntity, T>(entity);
 	}
 
 	/// <inheritdoc />
@@ -78,7 +78,7 @@ public abstract class Service<TContext, TRepository, TEntity, TKey> : ServiceBas
 		entity = Update(entity);
 		return entity == null
 					? default(T)
-					: Mapper.Map<T>(entity);
+					: Mapper.Map<TEntity, T>(entity);
 	}
 
 	/// <inheritdoc />
@@ -102,7 +102,7 @@ public abstract class Service<TContext, TRepository, TEntity, TKey> : ServiceBas
 		token.ThrowIfCancellationRequested();
 		return entity == null
 					? default(T)
-					: Mapper.Map<T>(entity);
+					: Mapper.Map<TEntity, T>(entity);
 	}
 
 	/// <inheritdoc />
@@ -122,7 +122,7 @@ public abstract class Service<TContext, TRepository, TEntity, TKey> : ServiceBas
 		TEntity entity = Delete(key);
 		return entity == null
 					? default(T)
-					: Mapper.Map<T>(entity);
+					: Mapper.Map<TEntity, T>(entity);
 	}
 
 	/// <inheritdoc />
@@ -145,7 +145,7 @@ public abstract class Service<TContext, TRepository, TEntity, TKey> : ServiceBas
 		token.ThrowIfCancellationRequested();
 		return entity == null
 					? default(T)
-					: Mapper.Map<T>(entity);
+					: Mapper.Map<TEntity, T>(entity);
 	}
 
 	/// <inheritdoc />
@@ -165,7 +165,7 @@ public abstract class Service<TContext, TRepository, TEntity, TKey> : ServiceBas
 		entity = Delete(entity);
 		return entity == null
 					? default(T)
-					: Mapper.Map<T>(entity);
+					: Mapper.Map<TEntity, T>(entity);
 	}
 
 	/// <inheritdoc />
@@ -188,6 +188,6 @@ public abstract class Service<TContext, TRepository, TEntity, TKey> : ServiceBas
 		token.ThrowIfCancellationRequested();
 		return entity == null
 					? default(T)
-					: Mapper.Map<T>(entity);
+					: Mapper.Map<TEntity, T>(entity);
 	}
 }

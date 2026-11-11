@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using essentialMix.Data.Entity.Patterns.Repository;
 using essentialMix.Data.Model;
 using essentialMix.Data.Patterns.Parameters;
@@ -12,11 +10,13 @@ using essentialMix.Extensions;
 using essentialMix.Patterns.Object;
 using essentialMix.Patterns.Pagination;
 using JetBrains.Annotations;
+using Mapster;
+using MapsterMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SystemDbContext = Microsoft.EntityFrameworkCore.DbContext;
 
-namespace essentialMix.Data.Entity.AutoMapper.Patterns.Services;
+namespace essentialMix.Data.Entity.Mapster.Patterns.Services;
 
 public abstract class ServiceBase<TContext> : Disposable, IServiceBase<TContext>
 	where TContext : SystemDbContext
@@ -101,7 +101,7 @@ public abstract class ServiceBase<TContext, TRepository, TEntity, TKey> : Dispos
 		}
 
 		queryable = PrepareListQuery(queryable, settings);
-		IList<T> result = queryable.ProjectTo<T>(Mapper.ConfigurationProvider)
+		IList<T> result = queryable.ProjectToType<T>(Mapper.Config)
 									.ToList();
 		return new Paginated<T>(result, settings);
 	}
@@ -178,7 +178,7 @@ public abstract class ServiceBase<TContext, TRepository, TEntity, TKey> : Dispos
 		}
 
 		queryable = PrepareListQuery(queryable, settings);
-		IList<T> result = await queryable.ProjectTo<T>(Mapper.ConfigurationProvider)
+		IList<T> result = await queryable.ProjectToType<T>(Mapper.Config)
 										.ToListAsync(token)
 										.ConfigureAwait();
 		token.ThrowIfCancellationRequested();
@@ -208,7 +208,7 @@ public abstract class ServiceBase<TContext, TRepository, TEntity, TKey> : Dispos
 		TEntity entity = Get(key);
 		return entity == null
 				? default(T)
-				: Mapper.Map<T>(entity);
+				: Mapper.Map<TEntity, T>(entity);
 	}
 
 	/// <inheritdoc />
@@ -218,7 +218,7 @@ public abstract class ServiceBase<TContext, TRepository, TEntity, TKey> : Dispos
 		TEntity entity = Get(key, settings);
 		return entity == null
 					? default(T)
-					: Mapper.Map<T>(entity);
+					: Mapper.Map<TEntity, T>(entity);
 	}
 
 	/// <inheritdoc />
@@ -253,7 +253,7 @@ public abstract class ServiceBase<TContext, TRepository, TEntity, TKey> : Dispos
 		token.ThrowIfCancellationRequested();
 		return entity == null
 					? default(T)
-					: Mapper.Map<T>(entity);
+					: Mapper.Map<TEntity, T>(entity);
 	}
 
 	/// <inheritdoc />
@@ -266,7 +266,7 @@ public abstract class ServiceBase<TContext, TRepository, TEntity, TKey> : Dispos
 		token.ThrowIfCancellationRequested();
 		return entity == null
 					? default(T)
-					: Mapper.Map<T>(entity);
+					: Mapper.Map<TEntity, T>(entity);
 	}
 
 	[NotNull]

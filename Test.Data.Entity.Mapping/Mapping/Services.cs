@@ -1,6 +1,6 @@
-using AutoMapper;
-using essentialMix.Data.Entity.AutoMapper.Patterns.Services;
+using essentialMix.Data.Entity.Mapster.Patterns.Services;
 using JetBrains.Annotations;
+using MapsterMapper;
 using Microsoft.Extensions.Logging.Abstractions;
 using Test.Data.Entity.Mapping.Model;
 

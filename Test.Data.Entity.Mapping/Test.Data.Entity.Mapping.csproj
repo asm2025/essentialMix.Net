@@ -52,7 +52,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\essentialMix.Data.Entity.AutoMapper\essentialMix.Data.Entity.AutoMapper.csproj" />
+		<ProjectReference Include="..\essentialMix.Data.Entity.Mapster\essentialMix.Data.Entity.Mapster.csproj" />
 	</ItemGroup>
 
 </Project>

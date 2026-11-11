@@ -1,35 +1,32 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
-using AutoMapper.Internal;
+using essentialMix.Data.Entity.Mapster;
 using JetBrains.Annotations;
-using Microsoft.Extensions.Logging.Abstractions;
+using Mapster;
+using MapsterMapper;
 
 namespace Test.Data.Entity.Mapping.Mapping;
 
 /// <summary>
 /// Builds the mapper the way a consuming application would. Tests go through this helper only, so swapping the
-/// mapping library changes this file and the profile, not the tests.
+/// mapping library changes this file and the register, not the tests.
 /// </summary>
 public static class TestMapper
 {
 	[NotNull]
-	public static MapperConfiguration CreateConfiguration()
-	{
-		return new MapperConfiguration(cfg => cfg.AddProfile<SampleProfile>(), NullLoggerFactory.Instance);
-	}
+	public static TypeAdapterConfig CreateConfiguration() { return MappingConfiguration.Create(typeof(SampleRegister).Assembly); }
 
 	[NotNull]
-	public static IMapper Create() { return CreateConfiguration().CreateMapper(); }
+	public static IMapper Create() { return new Mapper(CreateConfiguration()); }
 
-	public static void AssertConfigurationIsValid() { CreateConfiguration().AssertConfigurationIsValid(); }
+	public static void Compile() { CreateConfiguration().Compile(); }
 
 	[NotNull]
 	public static IEnumerable<(Type Source, Type Destination)> RegisteredPairs()
 	{
-		return CreateConfiguration().Internal()
-									.GetAllTypeMaps()
-									.Select(e => (e.SourceType, e.DestinationType));
+		return CreateConfiguration().RuleMap
+									.Keys
+									.Select(e => (e.Source, e.Destination));
 	}
 }
