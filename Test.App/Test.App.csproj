@@ -29,7 +29,6 @@
 		<DebugType>full</DebugType>
 		<UseVSHostingProcess>false</UseVSHostingProcess>
 		<ErrorReport>prompt</ErrorReport>
-		<CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
 		<DefineConstants>TRACE</DefineConstants>
@@ -38,7 +37,6 @@
 		<DebugSymbols>true</DebugSymbols>
 		<UseVSHostingProcess>false</UseVSHostingProcess>
 		<ErrorReport>prompt</ErrorReport>
-		<CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
 	</PropertyGroup>
 
 	<ItemGroup>

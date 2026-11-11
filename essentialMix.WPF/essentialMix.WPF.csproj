@@ -32,7 +32,6 @@
 		<DefineConstants>DEBUG;TRACE</DefineConstants>
 		<DebugType>full</DebugType>
 		<ErrorReport>prompt</ErrorReport>
-		<CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
 		<DefineConstants>TRACE</DefineConstants>
@@ -40,7 +39,6 @@
 		<DebugType>portable</DebugType>
 		<DebugSymbols>true</DebugSymbols>
 		<ErrorReport>prompt</ErrorReport>
-		<CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
 	</PropertyGroup>
 	
 	<PropertyGroup>
